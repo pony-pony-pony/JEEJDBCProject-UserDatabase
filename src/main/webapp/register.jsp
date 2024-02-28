@@ -13,6 +13,7 @@
 <body>
 <h1>Sign Up</h1>
 <form method="post" action="${pageContext.request.contextPath}/registerServlet">
+
     <div>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required="required"/>
@@ -26,6 +27,11 @@
     <div>
         <label for="birthday">Date Of Birth:</label>
         <input type="date" name="birthday" id="birthday" required="required"/>
+    </div>
+    <br/>
+    <div>
+        <label for="login">Login:</label>
+        <input type="text" name="login" id="login" required="required"/>
     </div>
     <br/>
     <div>

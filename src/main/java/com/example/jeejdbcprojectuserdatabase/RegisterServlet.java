@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import static com.example.jeejdbcprojectuserdatabase.INPUT_ERROR.LOGIN_ALREADY_EXISTS;
 import static com.example.jeejdbcprojectuserdatabase.INPUT_ERROR.PASSWORD_DO_NOT_MATCH;
-import static com.example.jeejdbcprojectuserdatabase.INPUT_ERROR.USER_DOES_NOT_EXIST;
 
 @WebServlet(name = "registerServlet", value = "/registerServlet")
 public class RegisterServlet extends HttpServlet {
@@ -24,17 +24,20 @@ public class RegisterServlet extends HttpServlet {
         String name = request.getParameter("name");
         String lastName = request.getParameter("lastName");
         String birthday = request.getParameter("birthday");
+        String login = request.getParameter("login");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
+        Db.connect();
         if (!password.equals(confirmPassword)) {
             request.setAttribute("error", PASSWORD_DO_NOT_MATCH.message);
             doGet(request, response);
+        } else if (Db.checkLogin(login)) {
+            request.setAttribute("error", LOGIN_ALREADY_EXISTS.message);
+            doGet(request, response);
         } else {
-            int id = pushToDB(name, lastName, birthday, password, String.valueOf(LocalDateTime.now()));
-            response.sendRedirect("/users/profile/" + id);
+            Db.addUser(name, lastName, birthday, password, login);
+            Db.close();
+            getServletContext().getRequestDispatcher("/profile/" + login).forward(request, response);
         }
     }
-
-    // TODO write when db is created
-    private int pushToDB(String name, String lastName, String birthday, String password, String signUpDate) {return 0;}
 }
