@@ -1,20 +1,21 @@
-package com.example.jeejdbcprojectuserdatabase;
+package com.example.jeejdbcuserreistrationform.servlets;
 
-import java.io.*;
-
+import com.example.jeejdbcuserreistrationform.database.Db;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import static com.example.jeejdbcprojectuserdatabase.INPUT_ERROR.*;
+import java.io.IOException;
+
+import static com.example.jeejdbcuserreistrationform.utils.INPUT_ERROR.EMPTY_FIELD;
+import static com.example.jeejdbcuserreistrationform.utils.INPUT_ERROR.USER_DOES_NOT_EXIST;
 
 @WebServlet(name = "logInServlet", value = "/logIn")
 public class LogInServlet extends HttpServlet {
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("POST in LogInServlet");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         Db.connect();
@@ -24,19 +25,15 @@ public class LogInServlet extends HttpServlet {
         } else if (!Db.checkLogin(login)) {
             req.setAttribute("error", USER_DOES_NOT_EXIST.message);
             doGet(req, resp);
-        } else if(!Db.checkPassword(login, password)) {
+        } else if (!Db.checkPassword(login, password)) {
             req.setAttribute("error", USER_DOES_NOT_EXIST.message);
             doGet(req, resp);
         } else {
-            System.out.println("hey");
-
             getServletContext().getRequestDispatcher("/profile/" + login).forward(req, resp);
         }
-}
-
+    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("GET in LogInServlet");
         getServletContext().getRequestDispatcher("/logIn.jsp").forward(request, response);
     }
 }

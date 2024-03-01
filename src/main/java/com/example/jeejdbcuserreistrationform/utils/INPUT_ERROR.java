@@ -1,4 +1,4 @@
-package com.example.jeejdbcprojectuserdatabase;
+package com.example.jeejdbcuserreistrationform.utils;
 
 public enum INPUT_ERROR {
     EMPTY_FIELD("Fill all the forms"),

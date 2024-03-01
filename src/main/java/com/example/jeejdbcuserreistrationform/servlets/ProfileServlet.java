@@ -1,6 +1,7 @@
-package com.example.jeejdbcprojectuserdatabase;
+package com.example.jeejdbcuserreistrationform.servlets;
 
-import Models.User;
+import com.example.jeejdbcuserreistrationform.database.Db;
+import com.example.jeejdbcuserreistrationform.models.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,8 +14,6 @@ import java.io.IOException;
 public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("GET in ProfileServlet");
-        System.out.println(request.getParameter("name"));
         if (request.getParameter("name") == null) {
             Db.connect();
             request.setAttribute("user", Db.getUser(request.getParameter("login")));
@@ -30,7 +29,6 @@ public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("POST in ProfileServlet");
         doGet(request, response);
     }
 }

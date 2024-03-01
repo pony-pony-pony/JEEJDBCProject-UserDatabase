@@ -1,0 +1,28 @@
+
+th, td {
+    padding: 5px;
+}
+th {
+    text-transform: uppercase;
+    font-size: 85%;
+    letter-spacing: 0.1em;
+    background-color:rgb(145, 145, 251);
+    text-align: center;
+}
+tr {
+    background-color: rgb(197, 197, 252);
+}
+tr.odd {
+    background-color:rgb(172, 172, 251);
+}
+tr:hover {
+    background-color:rgb(178, 255, 254);
+}
+td {
+    text-align: center;
+    border-spacing: 1px 1px;
+    border: 2px solid rgb(131, 179, 235)
+}
+td:hover {
+    background-color:rgb(127, 250, 248);
+}
