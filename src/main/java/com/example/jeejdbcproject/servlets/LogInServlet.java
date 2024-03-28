@@ -1,6 +1,6 @@
-package com.example.jeejdbcuserreistrationform.servlets;
+package com.example.jeejdbcproject.servlets;
 
-import com.example.jeejdbcuserreistrationform.database.Db;
+import com.example.jeejdbcproject.database.Db;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static com.example.jeejdbcuserreistrationform.utils.INPUT_ERROR.EMPTY_FIELD;
-import static com.example.jeejdbcuserreistrationform.utils.INPUT_ERROR.USER_DOES_NOT_EXIST;
+import static com.example.jeejdbcproject.utils.INPUT_ERROR.EMPTY_FIELD;
+import static com.example.jeejdbcproject.utils.INPUT_ERROR.USER_DOES_NOT_EXIST;
 
 @WebServlet(name = "logInServlet", value = "/logIn")
 public class LogInServlet extends HttpServlet {

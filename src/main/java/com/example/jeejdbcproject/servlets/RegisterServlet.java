@@ -1,6 +1,6 @@
-package com.example.jeejdbcuserreistrationform.servlets;
+package com.example.jeejdbcproject.servlets;
 
-import com.example.jeejdbcuserreistrationform.database.Db;
+import com.example.jeejdbcproject.database.Db;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static com.example.jeejdbcuserreistrationform.utils.INPUT_ERROR.LOGIN_ALREADY_EXISTS;
-import static com.example.jeejdbcuserreistrationform.utils.INPUT_ERROR.PASSWORD_DO_NOT_MATCH;
+import static com.example.jeejdbcproject.utils.INPUT_ERROR.LOGIN_ALREADY_EXISTS;
+import static com.example.jeejdbcproject.utils.INPUT_ERROR.PASSWORD_DO_NOT_MATCH;
 
 @WebServlet(name = "registerServlet", value = "/registerServlet")
 public class RegisterServlet extends HttpServlet {

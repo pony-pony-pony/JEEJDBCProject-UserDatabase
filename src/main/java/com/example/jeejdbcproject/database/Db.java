@@ -1,6 +1,6 @@
-package com.example.jeejdbcuserreistrationform.database;
+package com.example.jeejdbcproject.database;
 
-import com.example.jeejdbcuserreistrationform.models.User;
+import com.example.jeejdbcproject.models.User;
 
 import java.sql.*;
 

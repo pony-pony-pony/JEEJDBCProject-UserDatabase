@@ -1,7 +1,7 @@
-package com.example.jeejdbcuserreistrationform.servlets;
+package com.example.jeejdbcproject.servlets;
 
-import com.example.jeejdbcuserreistrationform.database.Db;
-import com.example.jeejdbcuserreistrationform.models.User;
+import com.example.jeejdbcproject.database.Db;
+import com.example.jeejdbcproject.models.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

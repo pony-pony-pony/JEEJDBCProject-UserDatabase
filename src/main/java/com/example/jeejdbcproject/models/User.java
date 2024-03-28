@@ -1,4 +1,4 @@
-package com.example.jeejdbcuserreistrationform.models;
+package com.example.jeejdbcproject.models;
 
 import java.io.Serializable;
 
